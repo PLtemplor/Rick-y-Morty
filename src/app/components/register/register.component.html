@@ -1,0 +1,68 @@
+<div class="container-fluid">
+
+  <div class="authentication-main">
+    <div class="row">
+      <div class="col-md-4 p-0">
+        <div class="auth-innerleft">
+          <div class="text-center">
+            <img src="assets/images/cloudcontact/logo-login.png" class="logo-login" alt="">
+            <hr>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 p-0">
+        <div class="auth-innerright">
+          <div class="authentication-box">
+            <h3>Register User</h3>
+            <div class="card mt-4 p-4">
+              <form class="theme-form" [formGroup]="registerUserForm">
+
+                <div class="form-group">
+                  <label class="col-form-label">Email</label>
+                  <input type="email" class="form-control" formControlName="email"  placeholder="Email" required>
+                </div>
+                <div *ngIf="registerUserForm.controls.email.touched && registerUserForm.controls.email.errors?.required"
+                     class="text text-danger mt-1">
+                  Email is required
+                </div>
+                <div *ngIf="registerUserForm.controls.email.touched && registerUserForm.controls.email.errors?.email"
+                     class="text text-danger mt-1">
+                  Invalid Email
+                </div>
+
+
+                <div class="form-group">
+                  <label class="col-form-label">First Name</label>
+                  <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" required>
+                </div>
+                <div *ngIf="registerUserForm.controls.firstName.touched && registerUserForm.controls.firstName.errors?.required"
+                     class="text text-danger mt-1">
+                  First Name is required
+                </div>
+
+
+                <div class="form-group">
+                  <label class="col-form-label">Last Name</label>
+                  <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" required>
+                </div>
+                <div *ngIf="registerUserForm.controls.lastName.touched && registerUserForm.controls.lastName.errors?.required"
+                     class="text text-danger mt-1">
+                  Last Name is required
+                </div>
+
+                <div class="form-group form-row mb-0">
+                  <div class="col-md-2">
+                    <button  type="submit" class="btn btn-primary" [disabled]="registerUserForm.invalid"
+                             [class.loader--text]="this.showLoader"
+                             (click)="registerUser()">Register</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

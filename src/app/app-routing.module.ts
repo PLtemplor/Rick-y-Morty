@@ -1,12 +1,25 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PostComponent } from './components/posts/post/post.component';
+import { Routes, RouterModule } from '@angular/router';
+import { ContentComponent } from './layouts/content/content.component';
+import { content } from './shared/routes/content-routes';
+import {AuthGuard} from './shared/auth/auth.guard';
 
 const routes: Routes = [
-{path: '', redirectTo: '/home', pathMatch: 'full'},
-{ path: 'home', loadChildren: () => 
-import('./components/pages/home/home.module').then(m => m.HomeModule) },
-{path:'post/:id', component: PostComponent}
+  {
+    path: 'login',
+    loadChildren: './components/login/login.module#LoginModule'
+  },
+  {
+    path: 'register',
+    loadChildren: './components/register/register.module#RegisterModule'
+  },
+  {
+    path: '',
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    component: ContentComponent,
+    children: content
+  }
 ];
 
 @NgModule({
