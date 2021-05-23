@@ -30,10 +30,12 @@ export class RegisterComponent implements OnInit {
   }
 
 
+  // tslint:disable-next-line:typedef
   get password() {
     return this.registerUserForm.get('password');
   }
 
+  // tslint:disable-next-line:typedef
   registerUser() {
     this.showLoader = true;
 

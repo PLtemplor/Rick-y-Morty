@@ -7,16 +7,12 @@ import {Observable} from 'rxjs';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  
- 
-
-  constructor() {
+constructor() {
     // @ts-ignore
   }
 
 
   ngOnInit() {
-    
   }
 
 }

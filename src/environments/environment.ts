@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   authMicroserviceUrl: 'https://pruebas.midasoft.co:5443/Apis_DLLO/',
   rickAndMorityUrl: 'https://rickandmortyapi.com/api/',
+  role: 'Admin',
 };
 
 /*

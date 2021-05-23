@@ -1,6 +1,6 @@
 class TokenResponseDto {
   authToken: string;
-  refreshToken: string; 
+  refreshToken: string;
   status: string;
   statusMessage: string;
 }
