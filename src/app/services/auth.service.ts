@@ -12,10 +12,12 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  login(email: string, password: string) {
-    return this.http.post<any>(`${environment.authMicroserviceUrl}/api/v1/user/authenticate`, {
-      email,
-      password
+  login(username: string, password: string ) {
+    return this.http.post<any>(`${environment.authMicroserviceUrl}Security/api/SEG`, {
+      username,
+      password,
+      "companyId": "10",
+      "desdeMs": true
     }).pipe(concatMap((data) => {
           return this.http.post<TokenResponseDto>(`${environment.authMicroserviceUrl}/api/v1/user/getTokens`, { idToken: data.token});
     }));

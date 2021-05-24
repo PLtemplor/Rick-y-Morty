@@ -1,65 +1,51 @@
-<div class="container-fluid">
-    <!--login page start-->
-    <div class="authentication-main">
-        <div class="row">
-            <div class="col-md-4 p-0">
-                <div class="auth-innerleft">
-                    <div class="text-center">
-                        <img src="assets/images/cloudcontact/logo-login.png" class="logo-login" alt="">
-                        <hr>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8 p-0">
-                <div class="auth-innerright">
-                    <div class="authentication-box">
-                        <h4>LOGIN</h4>
-                        <div class="card mt-4 p-4 mb-0">
-                            <form class="theme-form" [formGroup]="loginForm">
-                                <div class="form-group">
-                                    <label class="col-form-label pt-0">Email</label>
-                                    <input type="email" class="form-control form-control-lg" formControlName="email"
-                                        required>
-                                    <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required"
-                                        class="text text-danger mt-1">
-                                        Email is required
-                                    </div>
-                                    <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email"
-                                        class="text text-danger mt-1">
-                                        Invalid Email
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label">Password</label>
-                                    <input type="password" class="form-control form-control-lg"
-                                        formControlName="password" required>
-                                    <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required"
-                                        class="text text-danger mt-1">
-                                        Password is required
-                                    </div>
-                                </div>
-                                <div class="checkbox p-0">
-                                    <input id="checkbox1" type="checkbox">
-                                    <label for="checkbox1">Remember me</label>
-                                </div>
-                                <div class="form-group form-row mt-3 mb-0">
-                                    <div class="col-md-3">
-                                        <button type="submit" class="btn btn-secondary btn-block"
-                                            [class.loader--text]="this.showLoader"
-                                            [disabled]="!loginForm.valid || this.showLoader"
-                                            (click)="login()"><span>{{ this.showLoader ? '' : 'Login' }}</span></button>
-                                    </div>
-                                  <div class="col-md-5"></div>
-                                  <div class="col-md-4 my-auto">
-                                    <button type="submit" class="btn btn-outline-info btn-block" (click)="goToRegister()">New Account</button>
-                                  </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--login page end-->
-</div>
+
+
+
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+<mat-card-content>
+<form [formGroup]="loginForm" >
+  <p>
+    <mat-form-field appearance="fill">
+        <mat-label>ingresa tu correo</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" required>
+        <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required"> Email is required</mat-error>
+      </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Password" formControlName="password" required>
+      <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required"> Password is required</mat-error>
+    </mat-form-field>
+  </p>
+
+  
+
+  <div class="button">
+    <button type="submit" mat-button (click)="login()">Login</button>
+  </div>
+
+  <div class="button" >
+    <button type="submit" mat-button (click)="goToRegister()">Registrarse</button>
+  </div>
+
+
+
+</form>
+</mat-card-content>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

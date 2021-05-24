@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {ClientService} from '../../services/client.service';
+
 
 type UserFields = 'email' | 'password';
 type FormErrors = { [u in UserFields]: string };
